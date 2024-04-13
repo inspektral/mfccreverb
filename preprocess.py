@@ -8,6 +8,7 @@ DURATION = 5
 SAMPLES = SAMPLE_RATE * DURATION
 JSON_PATH = "data.json"
 DATASET_PATH = "D:/datasets/reverbs/data/reverb-mono-5"
+MODEL_NAME = "first_prototype"
 
 def save_mfcc(dataset_path, json_path, n_mfcc=13, n_fft=2048, hop_length=512):
 
@@ -31,5 +32,6 @@ def save_mfcc(dataset_path, json_path, n_mfcc=13, n_fft=2048, hop_length=512):
         json.dump(data, fp, indent=4)
 
 if __name__ == "__main__":
-    save_mfcc(DATASET_PATH, JSON_PATH)
+    config = json.load(open("config.json", "r"))[MODEL_NAME]
+    save_mfcc(DATASET_PATH, JSON_PATH, n_mfcc=config["n_mfcc"], n_fft=config["n_fft"], hop_length=config["hop_length"])
 
