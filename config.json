@@ -1,6 +1,6 @@
 {
     "first_prototype": {
-        "sample_rate": 22500,
+        "sample_rate": 22050,
         "duration": 5,
         "n_fft": 2048,
         "hop_length": 512,
@@ -29,13 +29,72 @@
         ]
     },
     "second_prototype": {
-        "sample_rate": 22500,
+        "sample_rate": 22050,
         "duration": 5,
         "n_fft": 2048,
         "hop_length": 512,
         "n_mfcc": 13,
         "test_size": 0.3,
         "epochs": 10,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "layers": [
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 13,
+                "activation": "linear"
+            }
+        ]
+    },
+    "realistic": {
+        "sample_rate": 44100,
+        "duration": 5,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "n_mfcc": 20,
+        "test_size": 0.3,
+        "epochs": 30,
+        "batch_size": 64,
+        "learning_rate": 0.001,
+        "layers": [
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 13,
+                "activation": "linear"
+            }
+        ]
+    },
+    "lofi":
+    {
+        "sample_rate": 11025,
+        "duration": 5,
+        "n_fft": 1024,
+        "hop_length": 512,
+        "n_mfcc": 13,
+        "test_size": 0.3,
+        "epochs": 50,
         "batch_size": 32,
         "learning_rate": 0.001,
         "layers": [
