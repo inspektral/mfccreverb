@@ -7,7 +7,7 @@ import librosa
 import soundfile as sf
 import math
 
-MODEL_NAME = "lofi"  
+MODEL_NAME = "realistic"  
 
 model = tf.keras.models.load_model(MODEL_NAME+".h5")
 
@@ -18,7 +18,7 @@ def predict(data):
     return prediction
 
 if __name__ == "__main__":
-    input_data = json.load(open("test_input.json", "r"))["mfcc_test_3"]
+    input_data = json.load(open("test_input.json", "r"))["mfcc_test_4"]
     config = json.load(open("config.json", "r"))[MODEL_NAME]
 
     mfcc_to_generate = math.floor(config["sample_rate"]*config["duration"]/config["hop_length"])
@@ -30,7 +30,7 @@ if __name__ == "__main__":
             print("Invalid prediction:", prediction)
         mfccs = np.vstack([mfccs, prediction[0]])
 
-    print("Generated MFCCs:", mfccs)
+    # print("Generated MFCCs:", mfccs)
     print("Generated MFCCs shape:", mfccs.shape)
     #dump to json
     with open("generated.json", "w") as fp:
