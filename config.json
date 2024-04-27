@@ -115,5 +115,65 @@
                 "activation": "linear"
             }
         ]
+    },
+    "mel_hifi":
+    {
+        "sample_rate": 44100,
+        "duration": 5,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "n_mels": 30,
+        "test_size": 0.3,
+        "epochs": 50,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "layers": [
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 30,
+                "activation": "linear"
+            }
+        ]
+    },
+    "mel_db_hifi":
+    {
+        "sample_rate": 44100,
+        "duration": 5,
+        "n_fft": 2048,
+        "hop_length": 512,
+        "n_mels": 30,
+        "test_size": 0.3,
+        "epochs": 50,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "layers": [
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 64,
+                "activation": "relu"
+            },
+            {
+                "units": 30,
+                "activation": "linear"
+            }
+        ]
     }
 }
